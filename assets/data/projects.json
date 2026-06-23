@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Understanding Hurricanes",
+    "year": "2025",
+    "link": "https://mmzhang7.github.io/Explorable-Explanations/",
+    "description": "A responsive storytelling interface with scroll-driven D3 visualizations, featuring interactive dashboards with tooltips and filtering to examine hurricane costs and destructiveness, a customizable hurricane simulator, and interactive historical storm maps based on 100+ years of GOES datasets."
+  },
+  {
+    "title": "Bikewatching in Boston",
+    "year": "2025",
+    "link": "https://mmzhang7.github.io/bikewatching/",
+    "description": "Website built using HTML, CSS, and JavaScript to showcase bikesharing data in Boston. Features a responsive design and interactive elements."
+  },
+  {
+    "title": "Cravings and Costs: Shopping Smart Near UCSD Campus",
+    "year": "2025",
+    "link": "https://drive.google.com/file/d/1QQ8VEUFSaJtcTm3JuJyumV7aVAHlgebz/view?usp=sharing",
+    "description": "Using advanced visualization and data analysis techniques to explore best places to shop for grocery categories near UCSD. Features a responsive design and interactive elements."
+  },
+  {
+    "title": "Portfolio Website",
+    "year": "2025",
+    "link": "https://mmzhang7.github.io/portfolio/",
+    "description": "Website built using HTML, CSS, and JavaScript to showcase my projects and skills. Features a responsive design and interactive elements."
+  },
+  {
+    "title": "Spectral Topoplot - EEGLAB",
+    "year": "2025",
+    "link": "",
+    "description": "Mini Project to create a spectral topoplot function for EEGLAB using MATLAB. The function visualizes the distribution of power across the scalp for different frequency bands."
+  },
+  {
+    "title": "Culinary Computing: Recipe Analysis & Prediction",
+    "year": "2025",
+    "link": "https://mmzhang7.github.io/Recipes-Project/",
+    "description": "Engineered predictive features using scikit-learn pipelines to forecast recipe cook time, then performed fairness analysis on transformed features and optimized model."
+  },
+  {
+    "title": "Youtube Comments Analysis",
+    "year": "2025",
+    "link": "",
+    "description": "Developed a natural language processing pipeline to analyze and visualize sentiments in YouTube comments. Utilized Python libraries such as NLTK and Matplotlib."
+  },
+  {
+    "title": "The Case of the Predictable Detective: Surprisal as a Stylistic Forensic",
+    "year": "2025",
+    "link": "",
+    "description": "Quantified the readability, coherence, and uniformity of style of a text by its surprisal distributions, developing a pipeline for quantitative, computational literary analysis. Includes genre-specific surprisal contour visualizations and a normalization method for cross-text comparison visualizations."
+  },
+  {
+    "title": "The Mysterious Affair of Char RNN",
+    "year": "2025",
+    "link": "",
+    "description": "Rebuilt and finetuned Char RNN model in PyTorch, trained model on Shakespeare and self-extracted Agatha Christie text datasets, and applied NLP and Information Theory concepts to perform deep analysis of Char RNN and NLTK results."
+  },
+  {
+    "title": "The Simpsons PCA Reconstruction",
+    "year": "2024",
+    "link": "",
+    "description": "Developed an image classification pipeline using NumPy to preprocess and classify characters from The Simpsons dataset using Principle Components Analysis (PCA) for dimensionality reduction and Support Vector Machines (SVM) for classification, achieving a 80% accuracy rate."
+  },
+  {
+    "title": "Education & Life Expectancy EDA",
+    "year": "2024",
+    "link": "",
+    "description": "Conducted EDA on WHO life expectancy dataset, analyzing impacts of schooling, vaccination rates, and infant mortality on life expectancy using pandas, Matplotlib, NumPy, SciPy, and Seaborn."
+  },
+  {
+    "title": "Friends TV Show Analysis",
+    "year": "2023",
+    "link": "",
+    "description": "Performed standardized confidence interval and permutation tests on data about Friends teleplay writers and directors to show the correlation between experience and episode popularity."
+  }
+]

@@ -1,0 +1,115 @@
+---
+layout: single
+title: "Coursework"
+permalink: /coursework/
+author_profile: true
+---
+
+<p>Use the filters to explore my coursework by sequence. The cards are grouped by the order I took them in, with the earliest series first.</p>
+
+<div class="coursework-controls">
+  <button type="button" data-series="all" class="coursework-filter is-active">All</button>
+  <button type="button" data-series="1" class="coursework-filter">Series 1</button>
+  <button type="button" data-series="2" class="coursework-filter">Series 2</button>
+  <button type="button" data-series="3" class="coursework-filter">Series 3</button>
+  <button type="button" data-series="4" class="coursework-filter">Series 4</button>
+</div>
+
+<div id="coursework-summary"></div>
+<div id="coursework-grid" class="coursework-grid"></div>
+
+<script>
+  const coursework = [
+    { name: 'Probability', series: 1, term: 'Fall 2023', note: 'Foundational statistics and inference.' },
+    { name: 'Statistics', series: 1, term: 'Fall 2023', note: 'Core quantitative methods.' },
+    { name: 'Data Analysis & Inference', series: 2, term: 'Winter 2024', note: 'Applied statistical reasoning.' },
+    { name: 'Practice of Data Science', series: 2, term: 'Winter 2024', note: 'Hands-on data workflow practice.' },
+    { name: 'Supervised & Unsupervised Machine Learning', series: 2, term: 'Spring 2024', note: 'Modeling fundamentals.' },
+    { name: 'Scalable Analytics Systems', series: 3, term: 'Fall 2024', note: 'Large-scale data processing.' },
+    { name: 'Data Engineering', series: 3, term: 'Fall 2024', note: 'Pipelines and infrastructure.' },
+    { name: 'Neural Networks', series: 3, term: 'Winter 2025', note: 'Representation learning.' },
+    { name: 'Deep Learning', series: 3, term: 'Winter 2025', note: 'Modern deep models.' },
+    { name: 'Statistical NLP', series: 4, term: 'Spring 2025', note: 'Text modeling and language data.' },
+    { name: 'Recommender Systems & Web Mining', series: 4, term: 'Spring 2025', note: 'User-item modeling.' },
+    { name: 'Causality for ML/AI', series: 4, term: 'Spring 2025', note: 'Causal thinking for ML.' }
+  ];
+
+  const grid = document.getElementById('coursework-grid');
+  const summary = document.getElementById('coursework-summary');
+  const buttons = Array.from(document.querySelectorAll('.coursework-filter'));
+
+  function render(series) {
+    const filtered = series === 'all'
+      ? coursework
+      : coursework.filter((course) => String(course.series) === String(series));
+
+    summary.textContent = `${filtered.length} course${filtered.length === 1 ? '' : 's'} shown`;
+    grid.innerHTML = '';
+
+    filtered.forEach((course) => {
+      const card = document.createElement('article');
+      card.className = 'coursework-card';
+      card.innerHTML = `
+        <span class="coursework-series">Series ${course.series}</span>
+        <h3>${course.name}</h3>
+        <p><strong>${course.term}</strong></p>
+        <p>${course.note}</p>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      buttons.forEach((item) => item.classList.remove('is-active'));
+      button.classList.add('is-active');
+      render(button.dataset.series);
+    });
+  });
+
+  render('all');
+</script>
+
+<style>
+  .coursework-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+
+  .coursework-filter {
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 0.45rem 0.85rem;
+    background: var(--card-background);
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .coursework-filter.is-active {
+    background: var(--hover-background);
+    font-weight: 600;
+  }
+
+  .coursework-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1rem;
+  }
+
+  .coursework-card {
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 1rem;
+    background: var(--card-background);
+  }
+
+  .coursework-series {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    background: var(--hover-background);
+  }
+</style>

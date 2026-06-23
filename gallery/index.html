@@ -1,0 +1,155 @@
+---
+layout: single
+title: "Gallery"
+permalink: /gallery/
+author_profile: true
+---
+
+<p class="notice--info">Selected projects from my portfolio, organized as a gallery.</p>
+
+<div class="gallery-controls">
+  <label for="gallery-search">Search</label>
+  <input id="gallery-search" type="search" placeholder="Search projects by title or keyword" />
+</div>
+
+<div id="gallery-preview" class="gallery-preview" aria-live="polite">
+</div>
+<div id="gallery-status"></div>
+<div id="gallery-grid" class="gallery-grid"></div>
+
+<script>
+  const grid = document.getElementById('gallery-grid');
+  const searchInput = document.getElementById('gallery-search');
+  const status = document.getElementById('gallery-status');
+  const preview = document.getElementById('gallery-preview');
+  let projects = [];
+
+  function setPreview(project) {
+    if (!project) {
+      preview.innerHTML = '<p class="gallery-preview__label">Hover a project to preview its link</p>';
+      return;
+    }
+
+    const link = project.link || '';
+    const linkMarkup = link
+      ? `<a href="${link}" target="_blank" rel="noreferrer">${link}</a>`
+      : '<span>No external link</span>';
+
+    preview.innerHTML = `
+      <div class="gallery-preview__content">
+        <p class="gallery-preview__eyebrow">Link preview</p>
+        <h3>${project.title}</h3>
+        <p>${linkMarkup}</p>
+        <p>${project.description}</p>
+      </div>
+    `;
+  }
+
+  function render(filtered) {
+    grid.innerHTML = '';
+    status.textContent = `${filtered.length} project${filtered.length === 1 ? '' : 's'}`;
+
+    filtered.forEach((project) => {
+      const card = document.createElement('article');
+      card.className = 'gallery-card';
+      card.tabIndex = 0;
+      const title = project.link
+        ? `<h3><a href="${project.link}" target="_blank" rel="noreferrer">${project.title}</a></h3>`
+        : `<h3>${project.title}</h3>`;
+
+      card.innerHTML = `
+        ${title}
+        <p>${project.description}</p>
+        <p class="gallery-card__hint">Hover for link preview</p>
+      `;
+
+      card.addEventListener('mouseenter', () => setPreview(project));
+      card.addEventListener('focus', () => setPreview(project));
+      card.addEventListener('mouseleave', () => setPreview(null));
+      card.addEventListener('blur', () => setPreview(null));
+
+      grid.appendChild(card);
+    });
+
+    setPreview(null);
+  }
+
+  function filterProjects(query) {
+    const normalized = query.trim().toLowerCase();
+    if (!normalized) return projects;
+    return projects.filter((project) => {
+      return [project.title, project.description, project.link]
+        .join(' ')
+        .toLowerCase()
+        .includes(normalized);
+    });
+  }
+
+  fetch('/assets/data/projects.json')
+    .then((response) => response.json())
+    .then((data) => {
+      projects = data;
+      render(projects);
+    });
+
+  searchInput.addEventListener('input', () => {
+    render(filterProjects(searchInput.value));
+  });
+</script>
+
+<style>
+  .gallery-controls {
+    display: grid;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .gallery-preview {
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    background: var(--card-background);
+    min-height: 8rem;
+  }
+
+  .gallery-preview__label,
+  .gallery-card__hint {
+    color: var(--special-font);
+    opacity: 0.75;
+    font-size: 0.95rem;
+  }
+
+  .gallery-preview__eyebrow {
+    margin: 0 0 0.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+    opacity: 0.7;
+  }
+
+  .gallery-preview h3 {
+    margin-top: 0;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1rem;
+  }
+
+  .gallery-card {
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 1rem;
+    background: var(--card-background);
+    outline: none;
+    transition: transform 160ms ease, box-shadow 160ms ease;
+  }
+
+  .gallery-card:hover,
+  .gallery-card:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  }
+</style>
