@@ -21,7 +21,7 @@ title                    : "Maggie Zhang"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Maggie Zhang"
-description              : "Personal website for Maggie Zhang, with resume, projects, and contact links."
+description              : "Maggie Zhang - Data Science & Machine Learning @ UCSD"
 url                      : "https://mmzhang7.github.io"
 baseurl                  : ""
 repository               : "mmzhang7/mmzhang7.github.io"
@@ -68,7 +68,7 @@ reCaptcha:
 atom_feed:
   path                   : # blank (default) uses feed.xml
   hide                   : true #, false (default)
-search                   : true #, false (default)
+search                   : false #true #, false (default)
 search_full_content      : # true, false (default)
 search_provider          : # lunr (default), algolia, google
 lunr:
@@ -126,7 +126,7 @@ author:
       url: "https://www.linkedin.com/in/maggie-zhang888/"
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      url: "https://mmzhang.github.io"
+      url: "https://mmzhang7.github.io"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/mmzhang7"
@@ -142,7 +142,7 @@ footer:
       url: "https://github.com/mmzhang7"
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      url: "https://mmzhang.github.io"
+      url: "https://mmzhang7.github.io"
   since: "2026"
 
 

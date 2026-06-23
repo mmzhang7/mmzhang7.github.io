@@ -1,100 +1,86 @@
 ---
+layout: single
+title: "Resume & CV"
 permalink: /resume/
+author_profile: true
 ---
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Documents - Maggie Zhang</title>
-        <style>
-            html, body {
-                margin: 0;
-                min-height: 100vh;
-                background: #f6f1e8;
-                color: #1f1f1f;
-                font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-                display: grid;
-                place-items: center; /* Perfectly centers the card on the page */
-            }
-            .card {
-                background: rgba(255, 255, 255, 0.95);
-                border: 1px solid rgba(0, 0, 0, 0.08);
-                border-radius: 24px; /* Extra rounded corners for a cute look */
-                padding: 3rem 2.5rem;
-                text-align: center;
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
-                max-width: 380px;
-                width: 90%;
-            }
-            h1 {
-                margin: 0 0 0.5rem;
-                font-size: 2rem;
-            }
-            p {
-                color: #555;
-                margin: 0 0 2.5rem;
-                line-height: 1.5;
-            }
-            .button-group {
-                display: flex;
-                flex-direction: column;
-                gap: 1.2rem;
-            }
-            .btn {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                padding: 1rem 1.5rem;
-                font-size: 1.1rem;
-                font-weight: 600;
-                text-decoration: none;
-                border-radius: 999px; /* Pill shape */
-                transition: all 0.2s ease;
-                cursor: pointer;
-            }
-            /* Dark solid button for Resume */
-            .btn-resume {
-                background: #1f1f1f;
-                color: #ffffff;
-                border: 2px solid #1f1f1f;
-            }
-            .btn-resume:hover {
-                transform: translateY(-3px); /* Cute float effect on hover */
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            }
-            /* Light outlined button for CV */
-            .btn-cv {
-                background: transparent;
-                color: #1f1f1f;
-                border: 2px solid #1f1f1f;
-            }
-            .btn-cv:hover {
-                background: #f0f0f0;
-                transform: translateY(-3px);
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            }
-            .icon {
-                margin-right: 10px;
-                font-size: 1.25rem;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="card">
-            <h1>Documents</h1>           
-            <div class="button-group">
-                <!-- IMPORTANT: Make sure the file paths match exactly what is in your repository -->
-                
-                <a href="{{ '/assets/pdfs/Resume.pdf' | relative_url }}" class="btn btn-resume" target="_blank" rel="noopener noreferrer">
-                    <span class="icon">📄</span> View Resume
-                </a>
-                
-                <a href="{{ '/assets/pdfs/CV.pdf' | relative_url }}" class="btn btn-cv" target="_blank" rel="noopener noreferrer">
-                    <span class="icon">📚</span> View Full CV
-                </a>
-                
-            </div>
+
+<style>
+    /* We use a wrapper here instead of styling the whole body so we don't break your site's navigation theme */
+    .resume-wrapper {
+        display: grid;
+        place-items: center; 
+        min-height: 60vh; /* Centers the card nicely within your theme's content area */
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .resume-card {
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 24px; 
+        padding: 3rem 2.5rem;
+        text-align: center;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+        max-width: 380px;
+        width: 100%;
+    }
+    .button-group {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 999px; 
+        transition: all 0.2s ease;
+        cursor: pointer;
+    }
+    /* Dark solid button for Resume */
+    .btn-resume {
+        background: #1f1f1f;
+        color: #ffffff !important; /* !important ensures your theme's default link colors don't override this */
+        border: 2px solid #1f1f1f;
+    }
+    .btn-resume:hover {
+        transform: translateY(-3px); 
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        color: #ffffff !important;
+        text-decoration: none;
+    }
+    /* Light outlined button for CV */
+    .btn-cv {
+        background: transparent;
+        color: #1f1f1f !important;
+        border: 2px solid #1f1f1f;
+    }
+    .btn-cv:hover {
+        background: #f0f0f0;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        text-decoration: none;
+    }
+    .icon {
+        margin-right: 10px;
+        font-size: 1.25rem;
+    }
+</style>
+
+<div class="resume-wrapper">
+    <div class="resume-card">
+        <div class="button-group">
+            <!-- Removed target="_blank" so they open in the current tab -->
+            <a href="{{ '/assets/pdfs/Resume.pdf' | relative_url }}" class="btn btn-resume">
+                <span class="icon">📄</span> View Resume
+            </a>
+            
+            <a href="{{ '/assets/pdfs/CV.pdf' | relative_url }}" class="btn btn-cv">
+                <span class="icon">📚</span> View Full CV
+            </a>
         </div>
-    </body>
-</html>
+    </div>
+</div>
